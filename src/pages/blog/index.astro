@@ -1,0 +1,15 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+const posts = await Astro.glob("../../../content/posts/*.md");
+---
+
+<SiteLayout>
+  {
+    posts.slice(0, 4).map((post) => (
+      <article>
+        <h2><a href={'/blog/' + post.frontmatter.slug}>{post.frontmatter.title}</a></h2>
+        <p>{post.frontmatter.description}</p>
+      </article>
+    ))
+  }
+</SiteLayout>

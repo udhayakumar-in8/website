@@ -1,0 +1,21 @@
+---
+export async function getStaticPaths() {
+  const pages = await Astro.glob("../../content/pages/*.md");
+
+  return pages.map((post) => ({
+    params: {
+      slug: post.frontmatter.slug,
+    },
+    props: {
+      post,
+    },
+  }));
+}
+
+import SiteLayout from "../layouts/SiteLayout.astro";
+const { Content } = Astro.props.post;
+---
+
+<SiteLayout>
+    <Content />
+</SiteLayout>

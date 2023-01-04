@@ -8,7 +8,7 @@ RUN npm run build
 
 FROM node:hydrogen-alpine3.17 AS PROD
 WORKDIR /app
-RUN npm i -D serve
 COPY --from=BUILD /app/dist ./
+RUN npm i -g serve
 CMD ["serve"]
 

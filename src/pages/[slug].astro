@@ -12,10 +12,19 @@ export async function getStaticPaths() {
   }));
 }
 
+import Metatags from "../componentes/Metatags.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
 const { Content } = Astro.props.post;
+const { title, image, type, description } = Astro.props.post.frontmatter;
 ---
 
 <SiteLayout>
-    <Content />
+  <Metatags
+    slot="metatags"
+    title={title}
+    image={image}
+    type={type}
+    description={description}
+  />
+  <Content />
 </SiteLayout>

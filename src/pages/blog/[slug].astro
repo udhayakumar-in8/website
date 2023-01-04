@@ -1,4 +1,5 @@
 ---
+import Metatags from "../../componentes/Metatags.astro";
 import SiteLayout from "../../layouts/SiteLayout.astro";
 export async function getStaticPaths() {
   const posts = await Astro.glob("../../../content/posts/*.md");
@@ -14,9 +15,17 @@ export async function getStaticPaths() {
 }
 
 const { Content } = Astro.props.post;
+const { title, type, image, description } = Astro.props.post.frontmatter;
 ---
 
 <SiteLayout>
+  <Metatags
+    slot="metatags"
+    title={title}
+    image={image}
+    type={type}
+    description={description}
+  />
   <article>
     <Content />
   </article>

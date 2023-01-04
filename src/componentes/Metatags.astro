@@ -1,0 +1,32 @@
+---
+import { SEO } from "astro-seo";
+const { title, description, type, image } = Astro.props;
+---
+
+<SEO
+  title={title}
+  description={description}
+  openGraph={{
+    basic: {
+      title,
+      type,
+      image,
+    },
+  }}
+  twitter={{
+    creator: "@ayoubeddaoudi",
+  }}
+  extend={{
+    // extending the default link tags
+    link: [{ rel: "icon", href: "/favicon.ico" }],
+    // extending the default meta tags
+    meta: [
+      {
+        name: "twitter:image",
+        content: image,
+      },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
+    ],
+  }}
+/>

@@ -1,9 +1,17 @@
 ---
 import SiteLayout from "../../layouts/SiteLayout.astro";
+import Metatags from "../../componentes/Metatags.astro";
 const posts = await Astro.glob("../../../content/posts/*.md");
 ---
 
 <SiteLayout>
+  <Metatags
+    slot="metatags"
+    title="Blog"
+    image="image.png"
+    type="page"
+    description="Ayoub Eddaoudi blog"
+  />
   {
     posts.slice(0, 4).map((post) => (
       <article>

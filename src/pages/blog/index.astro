@@ -12,12 +12,47 @@ const posts = await Astro.glob("../../../content/posts/*.md");
     type="page"
     description="Ayoub Eddaoudi blog"
   />
+
+  <section class="hero">
+    <h1>Blog</h1>
+    <p>I like to write about stuff i ive learned, most of the times when learning about some low level subject you will found it hard to found resources. That's why i decided to write about everything i learn along the way</p>
+  </section>
+
+  <h3>Posts</h3>
   {
     posts.slice(0, 4).map((post) => (
       <article>
-        <h2><a href={'/blog/' + post.frontmatter.slug}>{post.frontmatter.title}</a></h2>
-        <p>{post.frontmatter.description}</p>
+        <h4>
+          <a href={"/blog/" + post.frontmatter.slug}>
+            {post.frontmatter.title}
+          </a>
+        </h4>
+        <p>
+          {post.frontmatter.description.length > 120 ? post.frontmatter.description.slice(0, 220).trim() + '...' : post.frontmatter.description}
+        </p>
       </article>
     ))
   }
 </SiteLayout>
+
+<style>
+  article {
+    margin-bottom: 20px;
+  }
+
+  article h4 a:hover {
+    text-decoration: underline;
+  }
+
+  .hero {
+    margin-bottom: 2rem;
+  }
+  
+  h3 {
+    margin-bottom: 1rem;
+  }
+
+  h4 {
+    margin-bottom: .5rem;
+  }
+</style>

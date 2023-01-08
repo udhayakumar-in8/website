@@ -42,6 +42,7 @@ const posts = await Astro.glob("../../../content/posts/*.md");
 
   article h4 a:hover {
     text-decoration: underline;
+    overflow: hidden;
   }
 
   .hero {
@@ -49,10 +50,21 @@ const posts = await Astro.glob("../../../content/posts/*.md");
   }
   
   h3 {
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
   }
 
   h4 {
+    font-size: 1.5rem;
     margin-bottom: .5rem;
+  }
+
+  article h4 a::before {
+    content: '#';
+    position: relative;
+    /* right: px; */
+    opacity: .5;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.7rem;
   }
 </style>

@@ -6,11 +6,38 @@
       <li><a href="/about">About</a></li>
     </ul>
   </nav>
+  <button class="mode-btn">Dark</button>
 </header>
+
+<script>
+  const button = document.querySelector('.mode-btn');
+
+  const theme = localStorage.getItem('theme');
+  if (theme)
+    document.body.setAttribute('theme', theme);
+  else
+    document.body.setAttribute('theme', 'dark');
+
+  button?.addEventListener('click', () => {
+    let themed;
+    const currentTheme = document.body.getAttribute('theme');
+    if (currentTheme == 'dark')
+      themed = 'light';
+    else
+      themed = 'dark';
+    document.body.setAttribute('theme', themed);
+    localStorage.setItem('theme', themed);
+  });
+</script>
 
 <style>
   header {
-
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
   }
 
   header ul {
@@ -33,15 +60,15 @@
     text-decoration: none;
   }
 
-  header ul li a {
-    color: black;
-  }
-
   header ul li a:hover {
     text-decoration: underline;
   }
 
   header ul li a:visited {
     text-decoration: none;
+  }
+
+  .mode-btn {
+    cursor: pointer;
   }
 </style>

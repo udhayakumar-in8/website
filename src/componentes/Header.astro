@@ -10,6 +10,12 @@
 </header>
 
 <script>
+
+  ["/", "/blog", "/about"].forEach((path, idx) => {
+    if (window.location.pathname == path)
+      document.querySelector(`nav ul li:nth-child(${idx + 1})`)?.classList.add('active');
+  })
+
   const button = document.querySelector('.mode-btn');
 
   const theme = localStorage.getItem('theme');
@@ -38,6 +44,7 @@
     align-items: center;
     margin-top: 1rem;
     margin-bottom: 2rem;
+    font-size: 1.2rem;
   }
 
   header ul {
@@ -70,5 +77,9 @@
 
   .mode-btn {
     cursor: pointer;
+  }
+
+  .active {
+    font-weight: 800;
   }
 </style>

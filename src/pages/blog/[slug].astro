@@ -30,3 +30,15 @@ const { title, type, image, description } = Astro.props.post.frontmatter;
     <Content />
   </article>
 </SiteLayout>
+
+<script>
+  function htagClickHandler(event) {
+    let url: string = window.location.protocol + '//' + window.location.host + window.location.pathname
+    console.log(url);
+    window.location.href = url + '#' + event.target.getAttribute('id');
+  };
+  const anchorTags = document.querySelectorAll("h2, h3, h4, h5, h6");
+  anchorTags.forEach((el) =>
+    el.addEventListener("click", htagClickHandler)
+  );
+</script>

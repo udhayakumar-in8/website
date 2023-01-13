@@ -15,7 +15,8 @@ export async function getStaticPaths() {
 }
 
 const { Content } = Astro.props.post;
-const { title, type, image, description } = Astro.props.post.frontmatter;
+const { title, type, image, description, categories } = Astro.props.post.frontmatter;
+const final: Array<string> | undefined = categories?.split(",").map((tag: string) => tag.trim());
 ---
 
 <SiteLayout>
@@ -27,18 +28,44 @@ const { title, type, image, description } = Astro.props.post.frontmatter;
     description={description}
   />
   <article>
+    <div class="categories">
+      <span>Categories:</span>
+      {
+        final?.length
+          ? final?.map(tag => (
+              <span class="categorie">
+                <a href={`/categories/${tag}`}>{tag}</a>
+              </span>
+            ))
+          : ""
+      }
+    </div>
     <Content />
   </article>
 </SiteLayout>
 
 <script>
   function htagClickHandler(event) {
-    let url: string = window.location.protocol + '//' + window.location.host + window.location.pathname
+    let url: string =
+      window.location.protocol +
+      "//" +
+      window.location.host +
+      window.location.pathname;
     console.log(url);
-    window.location.href = url + '#' + event.target.getAttribute('id');
-  };
+    window.location.href = url + "#" + event.target.getAttribute("id");
+  }
   const anchorTags = document.querySelectorAll("h2, h3, h4, h5, h6");
-  anchorTags.forEach((el) =>
-    el.addEventListener("click", htagClickHandler)
-  );
+  anchorTags.forEach((el) => el.addEventListener("click", htagClickHandler));
 </script>
+
+<style>
+  .categorie {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    margin-left: 1rem;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+</style>

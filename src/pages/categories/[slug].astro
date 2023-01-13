@@ -1,0 +1,48 @@
+---
+import { AstroCookies } from "astro/dist/core/cookies";
+import SiteLayout from "../../layouts/SiteLayout.astro";
+
+export async function getStaticPaths() {
+  const posts = await Astro.glob("../../../content/posts/*.md");
+
+  const categories: Array<string> = [];
+
+  posts.forEach((post) => {
+    if (!post.frontmatter.categories) return;
+    const res = post.frontmatter.categories.split(",").map((el) => el.trim());
+    res.forEach((el) => categories.push(el));
+  });
+
+  return categories.map((id) => ({
+    params: {
+      slug: id,
+    },
+    props: {
+      posts: posts.filter(el => el.frontmatter.categories?.toString().includes(id))
+    }
+  }));
+
+}
+
+const { posts } = Astro.props;
+const { slug } = Astro.params;
+---
+
+<SiteLayout>
+  <h1>{slug}</h1>
+
+  {
+    posts.slice(0, 4).map((post) => (
+      <article>
+        <h4>
+          <a href={"/blog/" + post.frontmatter.slug}>
+            {post.frontmatter.title}
+          </a>
+        </h4>
+        <p>
+          {post.frontmatter.description.length > 120 ? post.frontmatter.description.slice(0, 220).trim() + '...' : post.frontmatter.description}
+        </p>
+      </article>
+    ))
+  }
+</SiteLayout>

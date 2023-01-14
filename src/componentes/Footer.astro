@@ -1,11 +1,41 @@
 <footer>
-  <span>this is the footer</span>
+  <div>
+    <h5>Pages</h5>
+    <a href="/">Home</a>
+    <a href="/blog">Blog</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </div>
+  <div>
+    <h5>Social</h5>
+    <a href="https://twitter.com/ayoubeddaouddi" target="_blank">Twitter</a>
+    <a href="https://github.com/ayoubedd/website" target="_blank">Github</a>
+    <a href="https://www.linkedin.com/in/ayoubeddaouddi/" target="_blank">Linkedin</a>
+  </div>
+  <div>
+    <h5>Other</h5>
+    <a href="#">Link</a>
+    <a href="#">Link</a>
+    <a href="#">Link</a>
+  </div>
 </footer>
 
 <style>
   footer {
+    margin-top: 2.5rem;
     display: flex;
     flex-direction: row;
-    justify-content: left;
+    justify-content: space-between;
+  }
+  footer > div > h5 {
+    margin-bottom: 0.8rem;
+  }
+  footer > div {
+    display: block;
+    width: 100%;
+  }
+  footer > div > a {
+    display: block;
+    padding: 0.2rem 0;
   }
 </style>

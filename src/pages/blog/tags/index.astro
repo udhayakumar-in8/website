@@ -1,13 +1,13 @@
 ---
 import SiteLayout from "../../../layouts/SiteLayout.astro";
 const posts = await Astro.glob("../../../../content/posts/*.md");
-const categories: Array<any> = [];
+const allTags: Array<any> = [];
 
 posts.forEach((post) => {
   if (!post.frontmatter.tags) return;
-  const res = post.frontmatter.tags.split(",").map((el) => el.trim());
+  const res: Array<string> = post.frontmatter.tags.split(",").map((el:string) => el.trim());
   res.forEach((el) =>
-    categories.push({
+    allTags.push({
       categorie: el,
       posts: posts,
     })
@@ -18,7 +18,7 @@ posts.forEach((post) => {
 <SiteLayout>
   <h1>Tags</h1>
   {
-    categories.map((post) => (
+    allTags.map((post) => (
       <article>
         <h4>
           <a href={"/blog/tags/" + post.categorie}>{post.categorie}</a>

@@ -1,11 +1,11 @@
 ---
-import SiteLayout from "../../layouts/SiteLayout.astro";
-const posts = await Astro.glob("../../../content/posts/*.md");
+import SiteLayout from "../../../layouts/SiteLayout.astro";
+const posts = await Astro.glob("../../../../content/posts/*.md");
 const categories: Array<any> = [];
 
 posts.forEach((post) => {
-  if (!post.frontmatter.categories) return;
-  const res = post.frontmatter.categories.split(",").map((el) => el.trim());
+  if (!post.frontmatter.tags) return;
+  const res = post.frontmatter.tags.split(",").map((el) => el.trim());
   res.forEach((el) =>
     categories.push({
       categorie: el,
@@ -16,12 +16,12 @@ posts.forEach((post) => {
 ---
 
 <SiteLayout>
-  <h1>Categories</h1>
+  <h1>Tags</h1>
   {
     categories.map((post) => (
       <article>
         <h4>
-          <a href={"/categories/" + post.categorie}>{post.categorie}</a>
+          <a href={"/blog/tags/" + post.categorie}>{post.categorie}</a>
         </h4>
         {post.posts.slice(0, 4).map((post: string) => (
           <a href={`/blog/${post.frontmatter.slug}`}>

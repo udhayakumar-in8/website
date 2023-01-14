@@ -1,24 +1,23 @@
 ---
-import { AstroCookies } from "astro/dist/core/cookies";
-import SiteLayout from "../../layouts/SiteLayout.astro";
+import SiteLayout from "../../../layouts/SiteLayout.astro";
 
 export async function getStaticPaths() {
-  const posts = await Astro.glob("../../../content/posts/*.md");
+  const posts = await Astro.glob("../../../../content/posts/*.md");
 
-  const categories: Array<string> = [];
+  const tags: Array<string> = [];
 
   posts.forEach((post) => {
-    if (!post.frontmatter.categories) return;
-    const res = post.frontmatter.categories.split(",").map((el) => el.trim());
-    res.forEach((el) => categories.push(el));
+    if (!post.frontmatter.tags) return;
+    const res = post.frontmatter.tags.split(",").map((el) => el.trim());
+    res.forEach((el) => tags.push(el));
   });
 
-  return categories.map((id) => ({
+  return tags.map((id) => ({
     params: {
       slug: id,
     },
     props: {
-      posts: posts.filter(el => el.frontmatter.categories?.toString().includes(id))
+      posts: posts.filter(el => el.frontmatter.tags?.toString().includes(id))
     }
   }));
 
@@ -30,7 +29,6 @@ const { slug } = Astro.params;
 
 <SiteLayout>
   <h1>{slug}</h1>
-
   {
     posts.slice(0, 4).map((post) => (
       <article>

@@ -15,8 +15,8 @@ export async function getStaticPaths() {
 }
 
 const { Content } = Astro.props.post;
-const { title, type, image, description, categories } = Astro.props.post.frontmatter;
-const final: Array<string> | undefined = categories?.split(",").map((tag: string) => tag.trim());
+const { title, type, image, description, tags } = Astro.props.post.frontmatter;
+const postTags: Array<string> | undefined = tags?.split(",").map((tag: string) => tag.trim());
 ---
 
 <SiteLayout>
@@ -28,19 +28,19 @@ const final: Array<string> | undefined = categories?.split(",").map((tag: string
     description={description}
   />
   <article>
-    <div class="categories">
-      <span>Categories:</span>
+    <Content />
+    <div class="tags">
+      <span>Tags:</span>
       {
-        final?.length
-          ? final?.map(tag => (
-              <span class="categorie">
-                <a href={`/categories/${tag}`}>{tag}</a>
+        postTags?.length
+          ? postTags?.map(tag => (
+              <span class="tag">
+                <a href={`/blog/tags/${tag}`}>{tag}</a>
               </span>
             ))
           : ""
       }
     </div>
-    <Content />
   </article>
 </SiteLayout>
 
@@ -59,7 +59,7 @@ const final: Array<string> | undefined = categories?.split(",").map((tag: string
 </script>
 
 <style>
-  .categorie {
+  .tag {
     background-color: var(--color-bg);
     color: var(--color-text);
     display: inline-block;

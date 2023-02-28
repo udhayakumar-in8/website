@@ -83,3 +83,9 @@ h6 {
 p {
   margin-bottom: 1rem;
 }
+
+pre {
+	border-radius: 10px;
+	padding: 1rem;
+	font-family: 'JetBrains Mono';
+}

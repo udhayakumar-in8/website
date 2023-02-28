@@ -2,8 +2,8 @@
   <nav>
     <ul>
       <li><a href="/">Home</a></li>
-      <li><a href="/blog">Blog</a></li>
-      <li><a href="/about">About</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/about/">About</a></li>
     </ul>
   </nav>
   <button class="mode-btn">Dark</button>
@@ -11,7 +11,7 @@
 
 <script>
 
-  ["/", "/blog", "/about"].forEach((path, idx) => {
+  ["/", "/blog/", "/about/"].forEach((path, idx) => {
     if (window.location.pathname == path)
       document.querySelector(`nav ul li:nth-child(${idx + 1})`)?.classList.add('active');
   })

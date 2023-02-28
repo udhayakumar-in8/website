@@ -1,5 +1,4 @@
 import { defineConfig } from 'astro/config';
-import compress from 'astro-compress';
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,8 +12,8 @@ export default defineConfig({
       // https://github.com/shikijs/shiki/blob/main/docs/languages.md
       langs: ['c', 'js', 'ts'],
       // Enable word wrap to prevent horizontal scrolling
-      wrap: false
-    }
+      wrap: false,
+    },
   },
-  integrations: [compress()]
-});
+}
+);

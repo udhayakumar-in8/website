@@ -1,0 +1,59 @@
+<section class="newsletter">
+	<p>Subscribe to the newsletter</p>
+	<span>Need more boring content? Subscribe to this mailing list for receive more.</span>
+
+	<form>
+			<input type="email" name="email" placeholder="user@domain.com" required />
+			<button type="submit">Subscribe</button>
+	</form>
+</section>
+
+<style>
+	.newsletter {
+		background: var(--color-text);
+		border-radius: 10px;
+		color: var(--color-bg);
+		padding: 1rem 1rem;
+		margin-top: 3rem;
+	}
+
+	.newsletter p {
+		font-size: 1.3rem;
+		margin: 0.5rem 0;
+	}
+
+	.newsletter span {
+		margin-bottom: 1rem;
+	}
+
+	.newsletter form {
+		margin-top: 1rem;
+	}
+
+	.newsletter form {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	.newsletter input {
+		background: var(--color-bg);
+		color: var(--color-text);
+		width: 100%;
+		border: 2px solid var(--color-bg);
+		border-radius: 5px;
+		padding: .5rem;
+	}
+
+
+	.newsletter button {
+		background: var(--color-bg);
+		color: var(--color-text);
+		padding: .5rem;
+		margin-left: .3rem;
+		border-radius: 5px;
+		cursor: pointer;
+		width: 25%;
+		text-align: center;
+	}
+</style>

@@ -1,6 +1,8 @@
 ---
 import Metatags from "../componentes/Metatags.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
+import PostCard from "../componentes/PostCard.astro";
+import Newsletter from "../componentes/Newsletter.astro";
 ---
 
 <SiteLayout>
@@ -11,4 +13,37 @@ import SiteLayout from "../layouts/SiteLayout.astro";
     type="page"
     description="Ayoub Eddaoudi personal website"
   />
+
+  <section class="hero">
+    <h1>Ayoub Eddaoudi</h1>
+    <p>I write code, otherwise i think about it. Writting about projects, problems, tips and trick with the world</p>
+  </section>
+
+  <section class="posts">
+    <h2>Fetured Posts</h2>
+		<PostCard index="01" title="How to make your own kernel" />
+		<PostCard index="02" title="How to make your very own compiler" />
+		<PostCard index="03" title="Lets implement TCP/IP stack from scratch" />
+		<PostCard index="04" title="Lets implemtn a open source nvidia driver" />
+  </section>
+
+  <section class="projects">
+    <h2>Projects</h2>
+		<PostCard index="01" title="Posix complicant kernel build from scratch using rust" />
+		<PostCard index="02" title="Making use of modern x86 instructions" />
+		<PostCard index="03" title="How far can my kernel be optimized" />
+		<PostCard index="04" title="How slow is linux compared to my kernel" />
+  </section>
+
+	<Newsletter />
+
 </SiteLayout>
+
+<style>
+	section {
+		margin-top: 3rem;
+	}
+	section h2 {
+		margin-bottom: 1rem;
+	}
+</style>

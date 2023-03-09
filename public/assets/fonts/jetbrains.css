@@ -1,29 +1,30 @@
-/* @font-face { */
-/*     font-family: 'JetBrains Mono'; */
-/*     font-style: normal; */
-/*     font-weight: 400; */
-/*     src: url('./JetbrainsMonoRegular-RpvmM.ttf') format('truetype'); */
-/* } */
+@font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Pacifico Regular'), local('Pacifico-Regular'), url('./JetbrainsMonoRegular-RpvmM.ttf') format('truetype');
+		font-display: swap;
+}
 /* @font-face { */
 /*     font-family: 'JetBrains Mono'; */
 /*     font-style: italic; */
 /*     font-weight: 400; */
 /*     src: url('./JetbrainsMonoItalic-lg91X.ttf') format('truetype'); */
 /* } */
-@font-face {
-    font-family: 'JetBrains Mono';
-    font-style: normal;
-    font-weight: 500;
-    src: local('Pacifico Regular'), local('Pacifico-Regular'), url('./JetbrainsMonoMedium-nRvBM.ttf') format('truetype');
-		font-display: swap;
-}
-@font-face {
-    font-family: 'JetBrains Mono';
-    font-style: italic;
-    font-weight: 500;
-    src: local('Pacifico Regular'), local('Pacifico-Regular'), url('./JetbrainsMonoMediumItalic-1GDgL.ttf') format('truetype');
-		font-display: swap;
-}
+/* @font-face { */
+/*     font-family: 'JetBrains Mono'; */
+/*     font-style: normal; */
+/*     font-weight: 500; */
+/*     src: local('Pacifico Regular'), local('Pacifico-Regular'), url('./JetbrainsMonoMedium-nRvBM.ttf') format('truetype'); */
+/* 		font-display: swap; */
+/* } */
+/* @font-face { */
+/*     font-family: 'JetBrains Mono'; */
+/*     font-style: italic; */
+/*     font-weight: 500; */
+/*     src: local('Pacifico Regular'), local('Pacifico-Regular'), url('./JetbrainsMonoMediumItalic-1GDgL.ttf') format('truetype'); */
+/* 		font-display: swap; */
+/* } */
 /* @font-face { */
 /*     font-family: 'JetBrains Mono'; */
 /*     font-style: normal; */

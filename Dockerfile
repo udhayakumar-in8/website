@@ -6,9 +6,11 @@ COPY . .
 RUN npm run build
 
 
-FROM node:hydrogen-alpine3.17 AS PROD
-WORKDIR /app
-COPY --from=BUILD /app/dist ./
-RUN npm i -g serve
-CMD ["serve"]
+FROM alpine:3.17.2 AS PROD
+RUN apk update
+RUN apk add nginx
+COPY nginx/default.conf /etc/nginx/http.d/
+COPY --from=BUILD /app/dist/ /var/www/
+
+CMD ["nginx", "-g", "daemon off;"] 
 

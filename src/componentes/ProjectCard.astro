@@ -1,0 +1,26 @@
+---
+const { title } = Astro.props;
+---
+
+<div class="card">
+  <img src="/assets/images/place_holder.png">
+	<p>{title}</p>
+</div>
+
+<style>
+	.card {
+		padding: 0 0.5rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+	}
+	div > p {
+    text-align: center;
+		font-size: 1.1rem;
+		font-weight: 500;
+		padding: 0;
+		margin: 0;
+	}
+  div > p:hover {
+    text-decoration: underline;
+  }
+</style>

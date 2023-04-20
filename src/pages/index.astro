@@ -2,6 +2,7 @@
 import Metatags from "../componentes/Metatags.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
 import PostCard from "../componentes/PostCard.astro";
+import ProjectCard from "../componentes/ProjectCard.astro";
 import Newsletter from "../componentes/Newsletter.astro";
 ---
 
@@ -16,23 +17,24 @@ import Newsletter from "../componentes/Newsletter.astro";
 
   <section class="hero">
     <h1>Ayoub Eddaoudi</h1>
-    <p>I write code, otherwise i think about it. Writting about projects, problems, tips and trick with the world</p>
+    <p>I write code, otherwise i think about it. Writting about projects, problems, tips and tricks</p>
   </section>
 
   <section class="posts">
     <h2>Fetured Posts</h2>
-		<PostCard index="01" title="How to make your own kernel" />
-		<PostCard index="02" title="How to make your very own compiler" />
-		<PostCard index="03" title="Lets implement TCP/IP stack from scratch" />
-		<PostCard index="04" title="Lets implemtn a open source nvidia driver" />
+		<PostCard index="01" title="Post title" />
+		<PostCard index="02" title="Post title" />
+		<PostCard index="03" title="Post title" />
+		<PostCard index="04" title="Post title" />
   </section>
 
   <section class="projects">
     <h2>Projects</h2>
-		<PostCard index="01" title="Posix complicant kernel build from scratch using rust" />
-		<PostCard index="02" title="Making use of modern x86 instructions" />
-		<PostCard index="03" title="How far can my kernel be optimized" />
-		<PostCard index="04" title="How slow is linux compared to my kernel" />
+    <div class="projects-container">
+      <ProjectCard title="soon ..." />
+      <ProjectCard title="soon ..." />
+      <ProjectCard title="soon ..." />
+    </div>
   </section>
 
 	<Newsletter />
@@ -46,4 +48,8 @@ import Newsletter from "../componentes/Newsletter.astro";
 	section > h2 {
 		margin-bottom: .8rem;
 	}
+  .projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(180px, 1fr));
+  }
 </style>
